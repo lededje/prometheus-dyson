@@ -21,7 +21,6 @@ import config
 
 logger = logging.getLogger(__name__)
 
-
 def _query_credentials() -> config.DysonLinkCredentials:
     """Asks the user for their DysonLink/Cloud credentials.
 
@@ -34,7 +33,7 @@ def _query_credentials() -> config.DysonLinkCredentials:
     print('the Dyson app (e.g; on your phone:')
     username = input('Username (or number phone if in China): ')
     password = input('Password: ')
-    country = input('Country code (e.g; IE): ')
+    country = input('Country code (e.g; GB): ')
 
     return config.DysonLinkCredentials(username, password, country)
 
@@ -67,7 +66,7 @@ def _query_dyson(creds: config.DysonLinkCredentials) -> List[DysonDeviceInfo]:
     Args:
       username: email address or mobile number (mobile if country is CN)
       password: login password
-      country: two-letter country code for account, e.g; IE, CN
+      country: two-letter country code for account, e.g; GB, IE, CN
 
     Returns:
       list of DysonDeviceInfo
